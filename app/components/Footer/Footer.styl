@@ -1,0 +1,33 @@
+@import 'jeet'
+footer
+	overflow: auto
+	position: absolute
+	bottom: 100px
+	width: calc(100% - 200px)
+	font-size: 18px
+	color white
+	background black
+	cf()
+	+mobile()
+		center(310px)
+		.address
+			display block
+			margin-top 5px
+
+	.address
+		opacity: .4;
+	nav
+		float right
+		.link
+			color white
+			text-decoration none
+			padding-left 50px
+			transition: all linear .2s
+			&:hover
+				opacity: 0.6
+		+below(911px)
+			float: none;
+			margin-top: 30px;
+			.link
+				padding-left 0px
+				padding-right 70px
