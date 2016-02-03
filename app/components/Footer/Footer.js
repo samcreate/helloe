@@ -10,7 +10,7 @@ const Footer = () =>{
 
 			<nav>
 			  <Link className="link" to={`/`}>Home</Link>
-			  <Link className="link"to={`/careers/test`}>Careers</Link>
+			  <Link className="link"to={`/careers`}>Careers</Link>
 			  <a className="link" href="mailto:contact@helloelephant.com">Contact</a>
 			</nav>
 		</footer>

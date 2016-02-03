@@ -1,0 +1,84 @@
+@import 'jeet'
+
+
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.careers-container-job
+	color: white
+	height: auto;
+	padding-bottom: 130px;
+	width:756px
+	margin 0px auto
+	animation fadeIn ease-in 1;
+	animation-duration:1s;
+	animation-fill-mode:forwards;
+	+below(950px)
+		width 90%
+	+mobile()
+		width 90%
+	cf()
+	.button
+		margin: 0px auto
+		position: relative;
+		left: 50%;
+		margin-left: -70px;
+		+mobile()
+			padding: 14px 133px
+			margin-left: -152px;
+	.headline
+		font-size:65px
+		margin: 0px auto;
+		width: 100%;
+		padding-bottom: 55px
+		text-align: center;
+		+mobile()
+			font-size 40px
+			padding-bottom: 45px
+	.description
+		line-height: 27px;
+		font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		font-size: 18px;
+		font-style: normal;
+		font-variant: normal;
+		line-height: 20px;
+		margin-bottom: 76px;
+		min-height 600px
+		p
+			margin: 1.12em 0
+			display: block; 
+			font-style: normal;
+			font-variant: normal;
+			line-height: 26px;
+			font-weight: 300;
+			font-size 17px
+		h3,h4,h2,h1,h5,h6
+			display: block; 
+			unicode-bidi: embed
+			margin: 50px 0;
+		  font-weight: bolder
+		  font-size: 20px
+		ul
+			margin-left: 61px
+			margin-top: 56px;
+			margin-bottom: 56px;
+			display: block; 
+			unicode-bidi: embed
+			width 90%
+			+mobile()
+				margin-left: 0px
+		li
+			display: list-item
+			list-style: initial;
+			color: #868686
+			font-style: normal;
+			font-variant: normal;
+			line-height: 26px;
+			font-weight: 300;
+			margin-bottom: 26px;
+			font-size: 18px;
+			letter-spacing: -0.01em;
+		h3
+			padding-bottom: 10px
+			border-bottom: 1px solid rgba(255,255,255,0.3)
+			display table
+			font-size 21px

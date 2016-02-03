@@ -1,19 +1,25 @@
 @import 'jeet'
 footer
 	overflow: auto
-	position: absolute
-	bottom: 100px
+	position: fixed
+	bottom: 0px
 	width: calc(100% - 200px)
 	font-size: 18px
 	color white
 	background black
+	height 68px
+	padding-top: 42px;
+	border-top: 1px solid rgba(255,255,255,0.3);
 	cf()
-	+mobile()
+	+below(911px)
+		height 105px
+	+below(503px)
 		center(310px)
+		position relative
+		height: 100px;
 		.address
 			display block
 			margin-top 5px
-
 	.address
 		opacity: .4;
 	nav
