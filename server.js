@@ -17,7 +17,6 @@ const isDeveloping = process.env.NODE_ENV !== 'production';
 const port = isDeveloping ? 3000 : process.env.PORT;
 const app = express();
 const upload = multer({ dest: 'uploads/' });
-const gh = GreenhouseIO('Elephant', '9b7457b5a16e6f69f5a688bd97030091')
 
 if (isDeveloping) {
   const compiler = webpack(config);
