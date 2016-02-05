@@ -1,3 +1,20 @@
+.form-success, .form-error
+  min-height: 400px
+  animation fadeIn ease-in 1;
+  animation-duration:1s;
+  animation-fill-mode:forwards;
+  text-align center
+  h3
+    box-sizing border-box
+    padding-bottom: 20px
+    display table
+    font-size: 32px;
+    text-align center
+    width 100%
+  p 
+    line-height: 25px;
+    a
+      color white
 form
   box-sizing border-box
   height 940px
@@ -6,6 +23,13 @@ form
   font normal normal normal normal 14px / 21px Galaxie
   margin 0px
   font-family: 'FoundersGrotesk', Helvetica, Arial, sans-serif !important
+  width 700px
+  +below(980px)
+    width 93%
+  +below(980px)
+    width 89%
+  +mobile()
+    width 100%
   input[type=submit]
     clear both
     color black
@@ -19,6 +43,8 @@ form
     transition background-color 0.3s ease 0s, opacity 0.3s ease 0s
     font-size medium
     outline none
+    +mobile()
+      width 100%
     &:hover
       background #2F2F2F
       color rgb(255, 255, 255)
@@ -44,19 +70,24 @@ form
     color grey
     margin-right: -9px;
     padding-bottom: 10px;
+    +mobile()
+      margin-right 0px
   input[type=text],input[type=email],input[type=tel],input[type=url]
     clear left
     color rgb(51, 51, 51)
     display block
     height 33px
     position relative
-    width 700px
+    width 100%
     background rgb(240, 240, 240) none repeat scroll 0% 0% / auto padding-box border-box
     border none
     margin 0px 0px 24px
     outline rgb(51, 51, 51) none 0px
     padding 20px 32px
     font-size medium
+    +mobile()
+      width: 79%;
+      height: 15px;
   input[type=file]
     width 0.1px
     height 0.1px
@@ -64,11 +95,15 @@ form
     overflow hidden
     position absolute
     z-index -1
+    +mobile()
+      width 100%
   .input-wrapper
     box-sizing border-box
     float left
     height 82px
     margin 0px 16px 24px 0px
+    +mobile()
+      margin 0px 0px 24px 0px
     span
       box-sizing border-box
       color grey
@@ -95,5 +130,12 @@ form
     &:hover
       background #2F2F2F
       color rgb(255, 255, 255)
+  .file__label
+    +mobile()
+      padding: 0px 92px;
+      white-space: nowrap;
+  .file__label[for="cover_letter"]
+    +mobile()
+      padding: 0px 81px;
 
 

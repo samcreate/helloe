@@ -1,8 +1,23 @@
 import React from 'react';
+import ReactDom from 'react-dom';
+
 
 import './Home.styl';
 
-const Home = () =>{
+export default class Home extends React.Component {
+  static propTypes = {
+    name: React.PropTypes.string,
+  };
+
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+  	ReactDom.findDOMNode(this).scrollIntoView();
+  }
+
+  render() {
     return (
       <div className="home-container">
       	<ul>
@@ -17,5 +32,5 @@ const Home = () =>{
 		</ul>
       </div>
     );
+  }
 }
-export default Home;

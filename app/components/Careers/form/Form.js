@@ -15,7 +15,7 @@ class Form extends React.Component {
       this.displayName = 'Form';
 
       this.state = {
-	      fields: ['first_name', 'last_name', 'email', 'resume','cover_letter','question_498775']
+	      fields: ['first_name', 'last_name', 'email', 'resume','question_498775']
 	    }
       
   }
@@ -30,33 +30,10 @@ class Form extends React.Component {
   				span.innerHTML = filename
   }
 
-  submit(event){
-  	
-  	event.preventDefault();
-
-  	let isValid = true
-
-  	this.state.fields.forEach((ref) => {
-      isValid = this.refs[ref].validate() && isValid
-    });
-
-    if(isValid){
-    	console.log('ready to go');
-    	const form = event.target;
-  		const formData = new FormData(form);
-
-    	axios.post(
-			  '/service/submit-job',
-			  formData
-			);
-    	
-    }
-  }
-
 	render(){
 
 		return(
-			<form ref="myForm" method="POST" action="/service/submit-job" encType="multipart/form-data" onSubmit={this.submit.bind(this)}>
+			<form ref="myForm" method="POST" action="/service/submit-job" encType="multipart/form-data" onSubmit={this.props.onSubmit}>
 				<fieldset>
 					<h3>
 						Apply Now.
@@ -97,9 +74,7 @@ class Form extends React.Component {
 					
 					<div className="input-wrapper">
 						<Input ref="cover_letter"
-	          attr={{ name:"cover_letter", type:"file", label: "Attach Cover Letter *" }}
-	          validator={ v => v.trim().length > 0 }
-	          validationMessage="Conver letter is required."
+	          attr={{ name:"cover_letter", type:"file", label: "Attach Cover Letter" }}
 	          extraClasses="input_file"
 	          update={this.fileChange.bind(this)}
 	          />

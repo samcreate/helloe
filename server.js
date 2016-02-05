@@ -55,14 +55,17 @@ const cpUpload = upload.fields([{ name: 'resume', maxCount: 1 }, { name: 'cover_
 app.post('/service/submit-job', cpUpload, function (req, res, next) {
   
   const formData = {...req.body};
-  formData.resume = fs.createReadStream(req.files.resume[0].path)
-  formData.cover_letter = fs.createReadStream(req.files.cover_letter[0].path)
+  const coverletter = req.files.cover_letter;
+  const resume = req.files.resume;
+
+  if(coverletter) formData.resume = fs.createReadStream(resume[0].path)
+  if(coverletter) formData.cover_letter =  fs.createReadStream(coverletter[0].path);
 
 
   request.post({url:'https://9b7457b5a16e6f69f5a688bd97030091:@api.greenhouse.io/v1/applications/', formData: formData}, function optionalCallback(err, httpResponse, body) {
     if (err) {
-      res.json(err);
-      return console.error('upload failed:', err);
+      console.error('upload failed:', err);
+      return res.json(err); 
     }
     console.log('Upload successful!  Server responded with:', body);
     res.json(body);
