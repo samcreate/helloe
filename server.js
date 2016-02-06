@@ -11,18 +11,20 @@ import multer from 'multer'
 import request from 'request'
 import fs from 'fs'
 
-console.log('process.env.NODE_ENV: ',process.env.NODE_ENV);
+
 
 const isDeveloping = process.env.NODE_ENV !== 'production';
 const port = isDeveloping ? 3000 : process.env.PORT;
 const app = express();
 const upload = multer({ dest: 'uploads/' });
 
+console.log('isDeveloping: ',isDeveloping);
+
 if (isDeveloping) {
   const compiler = webpack(config);
   const middleware = webpackMiddleware(compiler, {
     publicPath: config.output.publicPath,
-    contentBase: 'src',
+    contentBase: '/dist/',
     stats: {
       colors: true,
       hash: false,
@@ -36,13 +38,14 @@ if (isDeveloping) {
 
   app.use(middleware);
   app.use(webpackHotMiddleware(compiler));
-  app.get('*', function response(req, res) {
+  app.use(express.static(__dirname + '/dist'));
+  app.get('/', function response(req, res) {
     res.write(middleware.fileSystem.readFileSync(path.join(__dirname, 'dist/index.html')));
     res.end();
   });
 } else {
   app.use(express.static(__dirname + '/dist'));
-  app.get('*', function response(req, res) {
+  app.get('/', function response(req, res) {
     res.sendFile(path.join(__dirname, 'dist/index.html'));
   });
 }

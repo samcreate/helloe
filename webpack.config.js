@@ -6,7 +6,6 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var stylusLoader = ExtractTextPlugin.extract("style-loader", "css-loader!stylus-loader");
 
-
 var jeet = require('jeet');
 var nib = require('nib');
 var rupture = require('rupture');
@@ -51,7 +50,17 @@ module.exports = {
     { 
       test: /\.styl$/, 
       loader: stylusLoader
-    }]
+    },
+    { 
+      test: /\.(jpg|png|svg|htc)$/, 
+       loader: 'url-loader?limit=100000' 
+      },
+    { 
+      test: /\.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/, 
+      loader: 'file-loader?name=app/fonts/[name].[ext]'
+    }
+
+    ]
   },
   stylus: {
     use: [jeet(), nib(), rupture()]
