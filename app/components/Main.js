@@ -25,6 +25,8 @@ class Main extends React.Component {
   	helper.getDepartmentsV2()
 		.then((careers)=>{
 			this.setState({careers});
+		}).catch((err)=>{
+			this.setState({careers:'error'});
 		});
   }
 
