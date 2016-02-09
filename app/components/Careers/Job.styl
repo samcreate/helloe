@@ -12,6 +12,29 @@
 	animation fadeIn ease-in 1;
 	animation-duration:1s;
 	animation-fill-mode:forwards;
+	& .error_state
+		display none
+		min-height: 400px
+		animation fadeIn ease-in 1;
+		animation-duration:1s;
+		animation-fill-mode:forwards;
+		text-align center
+		h3
+			box-sizing border-box
+			padding-bottom: 20px
+			display table
+			font-size: 32px;
+			text-align center
+			width 100%
+		p 
+			line-height: 25px;
+			a
+				color white
+	&.show-error
+		.description
+			display none
+		.error_state
+			display block !important
 	+below(950px)
 		width 90%
 	+mobile()

@@ -6,6 +6,7 @@ import Form from './form/Form'
 import FormError from './form/Error'
 import FormSuccess from './form/Success'
 import axios from 'axios';
+import ErrorState from './ErrorState'
 
 import './Job.styl'
 
@@ -18,7 +19,8 @@ class Job extends React.Component {
       
       this.state = {
       	job:[],
-      	fromViewState: 'form'
+      	fromViewState: 'form',
+      	success:false
       };
       
   }
@@ -36,7 +38,9 @@ class Job extends React.Component {
 						.replace(/&lt;/g, '<')
 						.replace(/&gt;/g, '>');
       data.content = desc;
-			this.setState({job:data});
+			this.setState({job:data, success:true});
+		}).catch((err)=>{
+			this.setState({success:false});
 		});
 
   }
@@ -71,19 +75,29 @@ class Job extends React.Component {
     }
   }
 	render(){
-		let formViewToshow;
-		if(this.state.fromViewState === 'form'){
-			formViewToshow = <Form job_id={this.state.job.id} onSubmit={this.handleSubmit.bind(this)} ref="myform"/>;
-		}else if(this.state.fromViewState === 'success'){
-			formViewToshow = <FormSuccess />
+
+		let wrapperClassName = `careers-container-job`;
+		let formViewToshow = (<div> </div>);
+
+		if(this.state.success !== false){
+
+			
+			if(this.state.fromViewState === 'form'){
+				formViewToshow = <Form job_id={this.state.job.id} onSubmit={this.handleSubmit.bind(this)} ref="myform"/>;
+			}else if(this.state.fromViewState === 'success'){
+				formViewToshow = <FormSuccess />
+			}else{
+				formViewToshow = <FormError />
+			}
 		}else{
-			formViewToshow = <FormError />
+			wrapperClassName = wrapperClassName+' show-error';
 		}
 		return(
-			<div className="careers-container-job">
+			<div className={wrapperClassName}>
 				<h2 className="headline">{this.state.job.title}</h2>
 				<div className="description"  dangerouslySetInnerHTML={{__html: this.state.job.content}} />
 					{formViewToshow}
+				<ErrorState />
 			</div>
 			)
 	}

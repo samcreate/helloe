@@ -5,6 +5,7 @@ import Footer from '../components/Footer/Footer'
 import helper from '../utils/helpers'
 
 
+
 var css = require('./Main.styl'); 
 
 
@@ -16,17 +17,18 @@ class Main extends React.Component {
       this.displayName = 'Main';
       
       this.state = {
-      	careers: new Map()
+      	careers: new Map(),
+      	success: false
       };
       
   }
 
   componentDidMount() {
-  	helper.getDepartmentsV2()
+  	helper.getDepartments()
 		.then((careers)=>{
-			this.setState({careers});
+			this.setState({careers,success:true});
 		}).catch((err)=>{
-			this.setState({careers:'error'});
+			this.setState({success:false});
 		});
   }
 

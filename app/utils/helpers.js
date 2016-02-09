@@ -1,34 +1,13 @@
 import axios from 'axios';
 
 
-function getDepartments () {
-	return axios.get('https://api.greenhouse.io/v1/boards/elephantcareers/embed/departments')
-	.then((arr =>{
 
-		return new Promise((resolve, reject) => {
-			
-			let departments = [];
-			for(let department of arr.data.departments){
-				if(department.jobs.length > 0){
-					departments.push(department);
-				}
-			}
-			resolve(departments);
-		});
-
-	}));
-
-}
-function getDepartmentJobs (id) {
-	console.log('getdeparmetnjobs',id)
-	return axios.get(`https://api.greenhouse.io/v1/boards/elephantcareers/embed/department?id=${id}`);
-}
 function getJob (id) {
 	return axios.get(`https://api.greenhouse.io/v1/boards/elephantcareers/embed/job?id=${id}`);
 }
 
 
-function getDepartmentsV2 () {
+function getDepartments () {
 	return axios.get('https://api.greenhouse.io/v1/boards/elephantcareers/embed/departments')
 	.then((arr =>{
 
@@ -63,9 +42,7 @@ function slugify(string) {
 
 let helper = {};
 	helper.getDepartments = getDepartments;
-	helper.getDepartmentJobs = getDepartmentJobs;
 	helper.getJob = getJob;
-	helper.getDepartmentsV2 = getDepartmentsV2;
 export default helper;
 
 
