@@ -52,12 +52,12 @@ module.exports = {
       loader: stylusLoader
     },
     { 
-      test: /\.(jpg|png|svg|htc)$/, 
-       loader: 'url-loader?limit=100000' 
-      },
-    { 
       test: /\.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/, 
       loader: 'file-loader?name=app/fonts/[name].[ext]'
+    },
+    { 
+      test: /\.(jpg|png|svg|htc)$/,
+      loader: 'file-loader?name=app/images/[name].[ext]'
     }
 
     ]
