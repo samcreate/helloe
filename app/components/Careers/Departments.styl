@@ -1,12 +1,11 @@
 @import 'jeet'
-@import 'parallax'
 
 @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 
+@keyframes fadeOutAndHide { 0% { opacity:1; } 98% { opacity:0; } 100% { display: none; } }
+
 .parallax__group
 	position: relative;
-	height: 500px; /* fallback for older browsers */
-	height: 100vh;
 	-webkit-transform-style: preserve-3d;
 	transform-style: preserve-3d;
 
@@ -14,11 +13,17 @@
 .intro
 	background: url('../../images/carreers.bg.1.jpg') no-repeat
 	background-size cover
-	
+	height: 500px; /* fallback for older browsers */
+	height: 100vh;
+.careers
+	min-height 500px
 .careers-container-departments
 	color: white
 	height: auto;
 	padding-bottom: 100px;
+	animation fadeIn ease-in 1;
+	animation-duration:1s;
+	animation-fill-mode:forwards;
 	cf()
 	& .error_state
 		display none
@@ -41,6 +46,17 @@
 	&.show-error
 		.error_state
 			display block !important
+	.logo
+		width: 99px
+		height: 37px;
+		background: url('../../images/elephant_logo.svg') no-repeat
+		background-size: 99px 37px;
+		text-indent: -9999px;
+		overflow hidden
+		position fixed
+		z-index 1
+		top 60px
+		left 5%
 	.headline__holder
 		margin-top: -6%;
 		align(both)
@@ -50,6 +66,9 @@
 			color white !important
 			font-weight 100
 			letter-spacing: 0.1em;
+			border-radius 1px
+			&:hover span
+				opacity .6
 		.headline
 			letter-spacing 0.0625em
 			font-size:4vw;
@@ -74,75 +93,46 @@
 			font-size 44px
 			padding-bottom: 45px
 	.departments
+		center(650px)
+		margin-top: 8%;
 		li.department
-			col(.49, cycle:2, gutter:0)
-			text-align: center;
-			opacity: 0
-			opacity 0
-			animation fadeIn ease-in 1;
-			animation-duration:1s;
-			animation-fill-mode:forwards;
-			margin-bottom:2%;
-			position: relative
-			cursor: pointer
-			+below(911px)
-				stack()
-			&:before
-				content: ' '
-				width: 92px
-				height: 1px
-				display: inline-block !important
-				background:  #333
-				position: absolute
-				bottom: 2px
-				left: 50%
-				margin-left: -46px
-			& a
-				text-decoration: none
-				color: white
-				font-size: 24px;
-				letter-spacing: 1px;
-				font-weight:bold
-				display:block
-				padding:70px 102px;
-				background: rgba(0,0,0,1)
-				transition: background .2s ease-in-out;
-				+mobile()
-					padding: 70px 44px;
-				p.openingCount
-					font-weight: 100;
-					font-style: initial;
-					font-size: 17px;
-					position: relative;
-					top: 16px;
-					color: #666;
-					transition-timing:0s;
+			line-height: 1.3em;
+			font-weight: 100;
+			letter-spacing 0.0625em
+			font-size: 1.1em;
+			margin-bottom 28px
+			&:hover
+				h4
+					opacity:0.6
+			&.show
+				&:before
+					content "__"
+					position absolute
+					margin-left -39px
+					letter-spacing 0px
+					font-size 28px
+					font-family arial-light
+					margin-top 5px
+				.jobs
+					display block
+			.openingCount
+				font-size: .45em;
+				float right
+			a
+				color white
+				text-decoration none
+			.jobs
+				margin-top 20px
+				display none					
+			.job
+				line-height: 30px;
 				&:hover
-					background: #333
-				
-						
-		&:nth-child(1) {
-		  animation-delay: 0.2s
-		}
-		&:nth-child(2) {
-		  animation-delay: 0.2s
-		}
-		&:nth-child(3) {
-		  animation-delay: 0.3s
-		}
-		&:nth-child(4) {
-		  animation-delay: 0.35s
-		}
-		&:nth-child(5) {
-		  animation-delay: 0.1s
-		}
-		&:nth-child(6) {
-		  animation-delay: 0.4s 
-		}
-		&:nth-child(7) {
-		  animation-delay: 0.1s
-		}
-		&:nth-child(8) {
-		  animation-delay: 0.55s
-		}
+					opacity .6
+				cf()
+				.jobtitle, .location
+					font-size: .45em;
+				.location
+					float right
+				.jobtitle
+					float left
 			

@@ -3,20 +3,19 @@ footer
 	overflow: auto
 	position: fixed
 	bottom: 0px
-	width: 100%
+	width: 90%
 	font-size: 18px
 	color white
 	background none
 	height 68px
 	padding-top: 42px;
 	border-top: 1px solid rgba(255,255,255,0.3);
-	transition all .2s
+	left: 50%;
+	transform: translateX(-50%);
 	&.add_black
 		background black
 	.copy__holder
-		float left
-		padding-left 50px
-			
+		float left			
 	cf()
 	+below(911px)
 		height 105px
@@ -30,7 +29,6 @@ footer
 	.address
 		opacity: .4;
 	nav
-		margin-right: 50px;
 		float right
 		.link
 			color white

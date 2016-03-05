@@ -12,12 +12,56 @@ class Departments extends React.Component {
 
       super(props);
       this.displayName = 'Departments';
+      this.state ={
+      	jobs_shown:[]
+      }
       
   }
 
   _handleClickToScroll(event){
   	event.preventDefault()
   	this.refs.departments.scrollIntoView()
+  }
+
+  _buildOpenings(jobs){
+
+  	let openings_html = [];
+
+  	jobs.forEach((job, index) => {
+  		openings_html.push(
+  			<li className="job">
+  				<h5 className="jobtitle">{job.title}</h5>
+  				<p className="location">{job.location.name}</p>
+  			</li>
+  		)
+  	});
+
+  	return openings_html;
+  }
+
+  _handleClientServiceToggle(event){
+
+  	event.preventDefault();
+  	const jahbs = event.currentTarget.nextSibling;
+  	const department_li = event.currentTarget.parentNode;
+
+  	if( this.state.jobs_shown[jahbs.dataset.reactid] != null){
+  		department_li.className = `department hide`;
+  		this.state.jobs_shown[jahbs.dataset.reactid] = null;
+  	}else{
+  		department_li.className = `department show`;
+  		this.state.jobs_shown[jahbs.dataset.reactid] = jahbs;
+  	}
+  				
+  	
+  }
+
+  _pluralize(word, count){
+
+  	if(count !== 1){1
+  		word = word+'s';
+  	}
+  	return word;
   }
 
 	render(){
@@ -29,7 +73,15 @@ class Departments extends React.Component {
 
 			this.props.appState.careers.forEach((department, index) => {
 				departments_list.push(<li className="department" key={index}>
-					<h4><Link className="link"to={`/careers/${index}`}>{department.name} <p className="openingCount"> {department.count} Openings</p> </Link> </h4>
+					<h4 onClick={this._handleClientServiceToggle.bind(this)}>
+						<a href="#" className="link">
+								{department.name}
+							 	<p className="openingCount"> {department.count} {this._pluralize('Opening',department.count)}</p> 
+					 	</a>
+					</h4>
+					<ul className="jobs">
+						{this._buildOpenings(department.jobs)}
+					</ul>
 				</li>);
 				totalCount += department.count;
 			});
@@ -42,6 +94,9 @@ class Departments extends React.Component {
 
 		return(
 			<div className={wrapperClassName}>
+				<h1 className="logo">
+					Elephant
+				</h1>
 				<ErrorState />
 				<div className="parallax__group intro">
 						<div className="headline__holder">
