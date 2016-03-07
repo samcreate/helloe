@@ -3,6 +3,19 @@
 
 @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 
+body.careers.job
+	background white
+	.main-container
+		color black !important
+		h3
+			color black
+		footer
+			background white
+			color black
+			border-top 1px solid rgba(0,0,0,0.3)
+			nav .link
+				color black
+
 .careers-container-job
 	color: white
 	height: auto;
@@ -49,14 +62,15 @@
 			padding: 14px 133px
 			margin-left: -152px;
 	.headline
-		font-size:65px
-		margin: 0px auto;
-		width: 100%;
-		padding-bottom: 55px
-		text-align: center;
-		+mobile()
-			font-size 40px
-			padding-bottom: 45px
+		font-size:1.1em
+		position fixed
+		z-index 1
+		top 40px
+		left 5%
+		color black
+		font-weight bolder
+		line-height: 33px;
+		border-bottom 1px solid black
 	.description
 		line-height: 27px;
 		font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;

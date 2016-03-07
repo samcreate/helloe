@@ -94,15 +94,15 @@ class Job extends React.Component {
 		}
 		return(
 			<div className={wrapperClassName}>
-				<h2 className="headline">{this.state.job.title}</h2>
-				<div className="description"  dangerouslySetInnerHTML={{__html: this.state.job.content}} />
+				<Link className="link"to={`/careers`}>
+					<h2 className="headline">{this.state.job.title}</h2>
+				</Link>
 					{formViewToshow}
 				<ErrorState />
 			</div>
 			)
 	}
+	//<div className="description"  dangerouslySetInnerHTML={{__html: this.state.job.content}} />
 };
 
 export default Job;
-
-//				<a className="button" href={`mailto:careers@helloelephant.com?subject=${this.state.job.title} Application`}>Apply</a>

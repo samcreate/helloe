@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-
+let instance = axios.create({
+  headers: {'Access-Control-Allow-Origin' : '*'}
+});
 
 function getJob (id) {
 	return axios.get(`https://api.greenhouse.io/v1/boards/elephantcareers/embed/job?id=${id}`);

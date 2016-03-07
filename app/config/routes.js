@@ -9,8 +9,7 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 
 export default (
 	 <Route path="/" component={Main}>
-	 	<Route path="careers/:department_id/:job_id" component={Job} />
-	 	<Route path="careers/:department_id" component={JobList} />
+	 	<Route path="careers/job/:job_id" component={Job} />
 	 	<Route path="careers" component={Departments} />
 		<IndexRoute component={Home} />
 	</Route>

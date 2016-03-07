@@ -34,11 +34,11 @@ class Form extends React.Component {
 
 		return(
 			<form ref="myForm" method="POST" action="/service/submit-job" encType="multipart/form-data" onSubmit={this.props.onSubmit}>
-				<fieldset>
+				<fieldset className="form__header">
 					<h3>
 						Apply Now.
 					</h3>
-					<p className="req">* required</p>
+					<p className="req">* required field</p>
 					<input type="hidden" name="id" value={this.props.job_id}  />
 					<input type="hidden" name="mapped_url_token" />
 				</fieldset>

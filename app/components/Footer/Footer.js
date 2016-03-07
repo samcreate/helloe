@@ -12,8 +12,6 @@ class Footer extends React.Component {
 		}
 
 		componentDidMount() {
-			//window.scroll.bind(this._scroll_handler);
-			console.log('here')
 			window.addEventListener('scroll', this._scroll_handler.bind(this), false);
 		}
 

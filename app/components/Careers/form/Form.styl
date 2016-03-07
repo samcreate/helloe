@@ -1,3 +1,25 @@
+
+::-webkit-input-placeholder {
+   color: black;
+   margin-left none
+   padding-left none
+   text-indent: 0px
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: black;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: black;  
+}
+
+:-ms-input-placeholder {  
+   color: black;  
+}
+
+
+
 .form-success, .form-error
   min-height: 400px
   animation fadeIn ease-in 1;
@@ -31,18 +53,26 @@ form
   +mobile()
     width 100%
   input[type=submit]
-    clear both
-    color black
-    cursor pointer
-    display block
-    position relative
+    font-size medium
     text-align center
-    background white
-    border 0px none rgb(255, 255, 255)
-    padding 18px 32px
+    clear both
+    color white
+    cursor pointer
+    box-sizing border-box
+    cursor pointer
+    display inline-block
+    height 54px
+    position relative
+    text-decoration none
+    background black
+    border 1px solid black
+    font normal normal bold normal 13px / 54px 'FoundersGrotesk', Helvetica, Arial, sans-serif 
+    outline rgb(255, 255, 255) none 0px
+    padding 0px 85px
     transition background-color 0.3s ease 0s, opacity 0.3s ease 0s
     font-size medium
-    outline none
+    margin-top: 50px
+    border-radius 1px
     +mobile()
       width 100%
     &:hover
@@ -50,6 +80,8 @@ form
       color rgb(255, 255, 255)
   .field__validation
     color red
+  .form__header
+    margin-top 180px
   fieldset
     box-sizing border-box
     background rgba(0, 0, 0, 0) none no-repeat scroll 0% 0% / auto padding-box border-box
@@ -64,27 +96,28 @@ form
     display table
     font-size: 32px;
     text-align center
-    width 100%
+    float left
+    margin 0px 0px 40px 0px
   .req
     text-align right
     color grey
-    margin-right: -9px;
+    margin-right: -32px;
     padding-bottom: 10px;
     +mobile()
       margin-right 0px
   input[type=text],input[type=email],input[type=tel],input[type=url]
     clear left
-    color rgb(51, 51, 51)
+    color black !important
     display block
     height 33px
     position relative
     width 100%
-    background rgb(240, 240, 240) none repeat scroll 0% 0% / auto padding-box border-box
     border none
     margin 0px 0px 24px
     outline rgb(51, 51, 51) none 0px
-    padding 20px 32px
+    padding 20px 32px 4px 0px;
     font-size medium
+    border-bottom: 1px solid black;
     +mobile()
       width: 79%;
       height: 15px;
@@ -121,12 +154,13 @@ form
     position relative
     text-decoration none
     background white
-    border 0px none rgb(255, 255, 255)
+    border 1px solid black
     font normal normal bold normal 13px / 54px 'FoundersGrotesk', Helvetica, Arial, sans-serif 
     outline rgb(255, 255, 255) none 0px
     padding 0px 32px
     transition background-color 0.3s ease 0s, opacity 0.3s ease 0s
     font-size medium
+    border-radius: 1px;
     &:hover
       background #2F2F2F
       color rgb(255, 255, 255)

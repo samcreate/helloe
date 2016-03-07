@@ -24,17 +24,22 @@ class Main extends React.Component {
   }
 
   componentDidMount() {
+
   	helper.getDepartments()
 		.then((careers)=>{
 			this.setState({careers,success:true});
 		}).catch((err)=>{
+			console.log('greenhouse data api error: ',err);
 			this.setState({success:false});
 		});
   }
 
 	render(){
-
 		const Children = React.cloneElement(this.props.children, { appState: this.state });
+		const url_class = this.props.location.pathname.split('/').join(' ').trim();
+
+		//set the class of the body to the current route
+		document.body.className = url_class;
 
 		return(
 			<div className="main-container">
