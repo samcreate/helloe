@@ -15,7 +15,6 @@ class Departments extends React.Component {
       this.state ={
       	jobs_shown:[]
       }
-      console.log(this.props.appState)
   }
 
   _handleClickToScroll(event){
@@ -30,7 +29,7 @@ class Departments extends React.Component {
   	jobs.forEach((job, index) => {
   		openings_html.push(
   			
-  			<li className="job">
+  			<li className="job" key={index}>
   				<Link className="link"to={`/careers/job/${job.id}`}>
   					<h5 className="jobtitle">{job.title}</h5>
   					<p className="location">{job.location.name}</p>
