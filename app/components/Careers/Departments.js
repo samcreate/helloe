@@ -96,9 +96,11 @@ class Departments extends React.Component {
 
 		return(
 			<div className={wrapperClassName}>
-				<h1 className="logo">
-					Elephant
-				</h1>
+				<a href="/">
+					<h1 className="logo">
+						Elephant
+					</h1>
+				</a>
 				<ErrorState />
 				<div className="parallax__group intro">
 						<div className="headline__holder">
