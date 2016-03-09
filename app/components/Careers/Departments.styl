@@ -9,12 +9,17 @@
 	-webkit-transform-style: preserve-3d;
 	transform-style: preserve-3d;
 
+body.careers
+	padding:0px
+
 // slides
 .intro
 	background: url('../../images/carreers.bg.1.jpg') no-repeat
 	background-size cover
 	height: 500px; /* fallback for older browsers */
 	height: 100vh;
+	+below(630px)
+		height: 465px;
 .careers
 	min-height 500px
 .careers-container-departments
@@ -57,9 +62,19 @@
 		z-index 1
 		top 60px
 		left 5%
+		+below(630px)
+			margin 0px auto
+			left: 50%;
+			margin-left: -92px;
+			width: 182px;
+			height: 67px;
+			background-size: contain
+			position: absolute;
 	.headline__holder
 		margin-top: -6%;
 		align(both)
+		+below(630px)
+			margin-top: 85px;
 		.button
 			background none
 			border 1px solid white
@@ -67,6 +82,9 @@
 			font-weight 100
 			letter-spacing: 0.1em;
 			border-radius 1px
+			+below(630px)
+				display: inline-block
+				width: 207px
 			&:hover span
 				opacity .6
 		.headline
@@ -81,6 +99,10 @@
 			animation-fill-mode:forwards;
 			line-height: 1.3em;
 			font-weight: 100;
+			+below(630px)
+				font-size 0.48em
+				width: 81%
+				padding-bottom: 65px;
 			&:before
 				content "__"
 				position absolute
