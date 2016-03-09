@@ -12,8 +12,3 @@ This is the v2 of helloelephant.com. This version address' adding in the a caree
 `npm run build` will generate all the files for a production build inside of the /dist directory.
 
 ##Hosting
-
-Heroku: Node.js
-
-Username: amcguire@helloelephant.com
-Password: Ateasub01@#
