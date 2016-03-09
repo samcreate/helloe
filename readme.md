@@ -10,5 +10,3 @@ This is the v2 of helloelephant.com. This version address' adding in the a caree
 ##Build
 
 `npm run build` will generate all the files for a production build inside of the /dist directory.
-
-##Hosting
